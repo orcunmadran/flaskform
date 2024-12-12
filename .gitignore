@@ -1,0 +1,6 @@
+__pycache__
+.idx
+.venv
+devserver.sh
+README.md
+requirements.txt
