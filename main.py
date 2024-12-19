@@ -11,7 +11,12 @@ def index():
 
 @app.route("/arama")
 def arama():
+    sozluk = {"apple":"elma", "karpuz":"water melon", "kavun":"melon"}
     anahtarKelime = request.args.get('anahtarKelime','')
+    if anahtarKelime in sozluk:
+        anahtarKelime = sozluk[anahtarKelime]
+    else:
+        anahtarKelime = "Aradığınız meyve sözlükte yok!"
     return render_template('arama.html', data=anahtarKelime)
 
 @app.route("/katalog")
