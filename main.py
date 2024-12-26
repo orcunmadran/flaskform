@@ -9,6 +9,18 @@ app = Flask(__name__)
 def index():
     return send_file('src/index.html')
 
+@app.route("/post_gonder")
+def post_gonder():
+    return render_template('post_gonder.html')
+
+@app.route("/post_alma", methods=["GET", "POST"])
+def post_alma():
+    if request.method == "POST":
+        anahtarKelime = request.form.get('anahtarKelime')
+    else:
+        anahtarKelime = "Hatalı metod"
+    return render_template('post_alma.html', data=anahtarKelime)
+
 @app.route("/arama")
 def arama():
     sozluk = {"apple":"elma", "karpuz":"water melon", "kavun":"melon"}
